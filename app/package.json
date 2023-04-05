@@ -1,0 +1,19 @@
+{
+  "name": "loginpage",
+  "version": "1.0.0",
+  "description": "> ### 구현계획\r > 간단한 회원가입 및 로그인 페이지만 제작.  \r > 목적 : JQuery 및 Node.js 사용법 숙지, 서버와 클라이언트간의 관계 이해  \r >\r > Front-end : HTML, Vanilla CSS, JQuery  \r > Back-end : Node.js, MySQL",
+  "main": "app.js",
+  "bin": {
+    "loginpage": "bin/www.js"
+  },
+  "scripts": {
+    "start": "node ./bin/www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
