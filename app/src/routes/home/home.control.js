@@ -1,14 +1,21 @@
 "use strict";
 
-function ShowMainPage(req,res){
-    res.render("home/index");
+const show = {
+    MainPage:(req,res)=>{
+        res.render("home/index");
+    },
+    LoginPage:(req,res)=>{
+        res.render("home/login");
+    }
 }
 
-function ShowLoginPage(req,res){
-    res.render("home/login");
+const process = {
+    login:(req,res)=>{
+        console.log(req.body);
+    }
 }
 
 module.exports = {
-    ShowMainPage,
-    ShowLoginPage,
+    show,
+    process,
 };
