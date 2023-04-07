@@ -2,7 +2,7 @@
 
 const id = document.querySelector("#id");
 const password = document.querySelector("#password");
-const loginBtn = document.querySelector("button");
+const loginBtn = document.querySelector("#loginBtn");
 
 loginBtn.addEventListener("click",OnLoginBtnClicked);
 
@@ -22,6 +22,7 @@ function OnLoginBtnClicked(){
     .then((res)=>res.json())
     .then((res)=>{
         if(res.sucess){
+            alert(res.msg);
             location.href = "/";
         }else{
             alert(res.msg);

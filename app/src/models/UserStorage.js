@@ -4,6 +4,7 @@ class UserStorage{
     static #user={
         id: ["a","b","c"],
         password: ["1","2","3"],
+        name: ["A","B","C"],
     };
 
     static getUser(...fields){
@@ -16,6 +17,25 @@ class UserStorage{
             return newUser;
         },{});
         return newUser;
+    }
+
+    static getUserInfo(id){
+        const user = this.#user;
+        const idx = user.id.indexOf(id);
+        const getUserInfo = Object.keys(user).reduce((newUser, info)=>{
+            newUser[info] = user[info][idx];
+            return newUser;
+        },{});
+
+        return getUserInfo;
+    }
+
+    static save(userInfo){
+        const user = this.#user;
+        user.id.push(userInfo.id);
+        user.name.push(userInfo.name);
+        user.password.push(userInfo.password);
+        return { success: true };
     }
 }
 
