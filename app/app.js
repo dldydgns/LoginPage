@@ -14,7 +14,9 @@ app.set("views","./src/views");
 app.set("view engine","ejs");
 app.use(express.static(__dirname + "/src/public"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));   // URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될경우 인식되지 않는 문제 해결
+// URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될경우 인식되지 않는 문제 해결
+// x-www-form-urlencoded 파싱
+app.use(bodyParser.urlencoded({extended: true}));   
 
 app.use("/", home); // 미들웨어를 등록
 
