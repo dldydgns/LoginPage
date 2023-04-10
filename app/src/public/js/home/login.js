@@ -7,6 +7,9 @@ const loginBtn = document.querySelector("#loginBtn");
 loginBtn.addEventListener("click",OnLoginBtnClicked);
 
 function OnLoginBtnClicked(){
+    if(!id.value) return alert("아이디를 입력 해 주세요.");
+    if(!password.value) return alert("비밀번호를 입력 해 주세요.");
+
     const req = {
         id: id.value,
         password: password.value,
@@ -21,11 +24,11 @@ function OnLoginBtnClicked(){
     })
     .then((res)=>res.json())
     .then((res)=>{
-        if(res.sucess){
+        if(res.success){
             alert(res.msg);
             location.href = "/";
         }else{
-            alert(res.msg);
+            if(res.err) return alert(res.err);
         }
     })
     .catch((err)=>{

@@ -9,7 +9,7 @@ const registerBtn = document.querySelector("#createBtn");
 registerBtn.addEventListener("click",OnRegisterBtnClicked);
 
 function OnRegisterBtnClicked(){
-    if(!id.value) return alert("아이디를 입력 해 주십시오.");
+    if(!id.value) return alert("아이디를 입력 해 주세요.");
     if(password.value !== confirmPassword.value) return alert("비밀번호가 일치하지 않습니다.");
 
     const req = {
@@ -31,6 +31,7 @@ function OnRegisterBtnClicked(){
         if(res.sucess){
             location.href = "/login";
         }else{
+            if(res.err) return alert(res.err);
             alert(res.msg);
         }
     })
