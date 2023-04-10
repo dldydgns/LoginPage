@@ -10,17 +10,17 @@ class User{
     async login() {
         const client = this.body;
         try{
-            const { id, name, password } = await UserStorage.getUserInfo(client.id);
-            
-            if(id){
-                if(id === client.id && password === client.password){
-                    return { sucess: true, msg: name + "님 환영합니다." };
+            const user = await UserStorage.getUserInfo(client.id);
+
+            if(user){
+                if(user.id === client.id && user.password === client.password){
+                    return { success: true, msg: name + "님 환영합니다." };
                 }
-                return { sucess: false, msg: "비밀번호가 틀렸습니다." };
+                return { success: false, msg: "비밀번호가 틀렸습니다." };
             }
-            return { sucess: false, msg: "존재하지 않는 아이디입니다." };
+            return { success: false, msg: "존재하지 않는 아이디입니다." };
         }catch(err){
-            return { success: false, msg: err };
+            return { success: false, err };
         }
     }
 
@@ -30,7 +30,7 @@ class User{
             const res = await UserStorage.save(client);
             return res;
         }catch(err){
-            return { success: false, msg : err };
+            return { success: false, err };
         }
     }
 }
